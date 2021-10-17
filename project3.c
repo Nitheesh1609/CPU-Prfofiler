@@ -176,7 +176,7 @@ static int perftop_show(struct seq_file *m, void *v) {
 			seq_printf(m,"\n%d.The PID %d has scheduled %d times and has executed %lld clock cycles\n",j,current_node->pid,current_node->count,current_node->sched_time);
 			seq_printf(m, "The Stack Trace of size %d is: \n",current_node->size2);
 			for (i = 0; i < current_node->size2; i++)
-				seq_printf(m,"%lu\t",current_node->array[i]);
+				seq_printf(m,"%pB\t",(void*)current_node->array[i]);
 			tmpnode= rb_prev(tmpnode); 
 		}
 	}

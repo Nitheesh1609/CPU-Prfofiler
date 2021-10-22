@@ -173,14 +173,15 @@ static int perftop_show(struct seq_file *m, void *v) {
 	for (j = 1; j <= 20; j++){
 		if(tmpnode!=NULL){
 			current_node=rb_entry(tmpnode, struct rb_entry,rbentry);
-			seq_printf(m,"\n%d.The PID %d has scheduled %d times and has executed %lld clock cycles\n",j,current_node->pid,current_node->count,current_node->sched_time);
-			seq_printf(m, "The Stack Trace of size %d is: \n",current_node->size2);
+			seq_printf(m,"\nRANK %d:The PID %d has scheduled %d times and has executed %lld clock cycles\n",j,current_node->pid,current_node->count,current_node->sched_time);
+			seq_printf(m,"The jenkinhashs key is %d \n",current_node->key);
+			seq_printf(m, "The Stack Trace of size %u is: \n",current_node->size2);
 			for (i = 0; i < current_node->size2; i++)
 				seq_printf(m,"%pB\t",(void*)current_node->array[i]);
 			tmpnode= rb_prev(tmpnode); 
 		}
-	}
 	seq_printf(m,"\n");
+	}
 	
 
 ///	hash_for_each(pid_hash,bkt,temp,hash){

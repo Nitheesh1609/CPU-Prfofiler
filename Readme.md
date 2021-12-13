@@ -1,0 +1,1 @@
+The goal of this project is to design a CPU profiling tool. The tool will be designed as a single kernel module, which when loaded, keeps track of statistics each task on the system, like total time spent on the CPU and the number of times a task was scheduled in/out. The module will display your profiling results using the proc file system. 
